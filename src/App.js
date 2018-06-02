@@ -28,6 +28,14 @@ class App extends Component {
       })
   }
 
+  handleInput = event => {
+    event.preventDefault();
+
+    const { search } = event.target;
+
+    this.getGiphy(search)
+  }
+
   render() {
     return (
       <div>
