@@ -30,6 +30,19 @@ class App extends Component {
 
   render() {
     return (
+      <div>
+        {this.state.giphy.map((gif, i) => {
+          return (
+            <GiphyImage
+              key={i}
+              id={i}
+              still={gif.still}
+              animate={gif.animated}
+              title={gif.title}
+            />
+          )
+        })}
+      </div>
     );
   }
 }
