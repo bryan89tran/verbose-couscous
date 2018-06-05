@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GiphyImage from './components/Image/Img'
+import GiphyImage from './components/Image/ImgFunction'
 
 class App extends Component {
 
@@ -31,10 +31,35 @@ class App extends Component {
   // handleInput = event => {
   //   event.preventDefault();
 
-  //   const { search } = event.target;
+  //   alert(event.target.id);
+     
 
-  //   this.getGiphy(search)
+  //   // this.getGiphy(search)
   // }
+
+  changeGif = (giphy) => {
+
+    console.log(giphy)
+
+    var arrayIndex = giphy.id;
+    var grabArray = this.state.giphy;
+
+    if (giphy.src === grabArray[arrayIndex].still){
+      
+      let temp = grabArray[arrayIndex].still
+      grabArray[arrayIndex].still = giphy.animated;
+      grabArray[arrayIndex].animated = temp;
+      this.setState({ giphy: grabArray })
+    } 
+    else {
+      
+      let temp = grabArray[arrayIndex].animated
+      grabArray[arrayIndex].animated = giphy.still;
+      grabArray[arrayIndex].still = temp;
+      this.setState({ giphy: grabArray })
+    }
+
+  }
 
   render() {
     return (
@@ -45,8 +70,9 @@ class App extends Component {
               key={i}
               id={i}
               still={gif.still}
-              animate={gif.animated}
+              animated={gif.animated}
               title={gif.title}
+              onClick={this.changeGif}
             />
           )
         })}

@@ -30,8 +30,8 @@ class GiphyImage extends Component {
               src={this.state.src} 
               alt={this.state.title}
               id={this.state.id}
-            //   onClick={() => this.changeImage()}
-              onClick={this.changeImage.bind(this)}
+              onClick={() => this.changeImage()}
+            //   onClick={this.changeImage.bind(this)}
             />
         );
     }
