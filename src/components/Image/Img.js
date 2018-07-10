@@ -2,20 +2,36 @@ import React, { Component } from 'react';
 
 class GiphyImage extends Component {
 
-    state = {
-        giphyState: false,
-        src: '',
-        animate: '',
-        title: '',
-        still: '',
-        id: ''
+//    state = {
+//        giphyState: false,
+//        src: '',
+//        animate: '',
+//        title: '',
+//        still: '',
+//        id: ''
+//   }
+
+//    componentDidMount(){
+//        const { title, still, animate, id } = this.props;
+//        this.setState({ still, animate, title, id, src: still });
+//    }
+    constructor(props){
+        super(props);
+        this.state = {
+            giphyState: false,
+            props,
+//            animate: '',
+//            title: '',
+//            still: '',
+//            id: ''
+        }
     }
 
-    componentDidMount(){
-        const { title, still, animate, id } = this.props;
-        this.setState({ still, animate, title, id, src: still });
-    }
-
+//       componentDidMount(){
+//        const { title, still, animate, id } = this.props;
+//        this.setState({ still, animate, title, id, src: still });
+//    }
+    
     changeImage() {
         if(this.state.giphyState === false){
             this.setState({ src: this.state.animate, giphyState: true})
